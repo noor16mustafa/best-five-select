@@ -34,3 +34,26 @@ function playerSelect(selectBtn) {
     }
 
 }
+//***************************Calculation part********************* */
+
+//setText by function calling
+function setAmountById(textId, newAmount) {
+    const textValueById = document.getElementById(textId);
+    textValueById.innerText = newAmount;
+
+}
+//calculation when click on calculate button
+document.getElementById('btn-calculate').addEventListener('click', function () {
+    const perPlayerCostFiled = document.getElementById('player_cost');
+    const perPlayerCostString = perPlayerCostFiled.value;
+    const perPlayerCost = parseFloat(perPlayerCostString);
+
+    const totalExpenses = perPlayerCost * arrayOfplayer.length;
+
+    setAmountById('expense-value', totalExpenses);
+
+})
+
+document.getElementById('total-calculate-btn').addEventListener('click', function () {
+
+})

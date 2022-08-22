@@ -128,11 +128,11 @@
             <div class="grid">
                 <div class=" bg-purple-900 gap-4 rounded-none text-center text-white">
                     <h1 class=" font-semibold italic text-xl  pt-8 pb-4">Budget</h1>
-                    <h3 class="inline mr-2 text-lg">Per Player:</h3><input
+                    <h3 class="inline mr-2 text-lg">Per Player:</h3><input id="player_cost"
                         class="inline rounded bg-purple-900 w-24 h-8 border-solid border-2 border-white-600" type="text"
                         name="">
-                    <button class="bg-yellow-600 px-14 py-2 text-white mt-4">Calculate</button>
-                    <h3 class=" mb-4 mt-4 text-lg">Player Expenses: $<span id="">00</span></h3>
+                    <button id="btn-calculate" class="bg-yellow-600 px-14 py-2 text-white mt-4">Calculate</button>
+                    <h3 class=" mb-4 mt-4 text-lg">Player Expenses: $<span id="expense-value">00</span></h3>
                     <h3 class="inline mr-2 text-lg mb-4">Manager:</h3><input
                         class="inline rounded bg-purple-900 w-24 h-8 border-solid border-2 border-white-600 mb-4"
                         type="text" name="">
@@ -140,14 +140,19 @@
                     <h3 class="inline mr-2 text-lg mb-4">Coach:</h3><input
                         class="inline rounded bg-purple-900 w-24 h-8 border-solid border-2 border-white-600 mb-4"
                         type="text" name="">
-                    <button class="bg-yellow-600 px-9 py-2 text-white mt-4">Calculate Total</button>
+                    <button id="total-calculate-btn" class="bg-yellow-600 px-9 py-2 text-white mt-4">Calculate
+                        Total</button>
                     <h3 class=" mb-4 mt-4 text-lg">Total: $<span id="">00</span></h3>
                 </div>
             </div>
+
         </div>
     </section>
 
     <script src="js/player.js"></script>
 </body>
+<footer class="bg-black py-12">
+    <h1 class="text-white text-medium text-center">opyright @ 2022 All Rights Reserved</h1>
+</footer>
 
 </html>
