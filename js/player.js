@@ -1,6 +1,22 @@
+// declare an array for storing the player name
 const arrayOfplayer = [];
 
-//click on select player button usng onclick function 
+//function for showing the selceted player list 
+function displayList(selectedPlayer) {
+
+    const olList = document.getElementById('selseted-players');
+    olList.innerHTML = "";
+    //adding player in the select list using for loop
+    for (let i = 0; i < selectedPlayer.length; i++) {
+        const playerName = arrayOfplayer[i];
+
+        const li = document.createElement("li");
+        li.textContent = (i + 1 + '.  ') + playerName;
+        olList.appendChild(li);
+    }
+}
+
+//click on select player button using onclick function 
 function playerSelect(selectBtn) {
     if (arrayOfplayer.length >= 5) {
         alert("Sorry !! You can't select more then 5 player ");
@@ -14,7 +30,7 @@ function playerSelect(selectBtn) {
 
         arrayOfplayer.push(playerName);
 
-        console.log(arrayOfplayer.length);
+        displayList(arrayOfplayer);
     }
 
 }
