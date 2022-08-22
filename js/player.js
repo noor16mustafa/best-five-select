@@ -36,6 +36,23 @@ function playerSelect(selectBtn) {
 }
 //***************************Calculation part********************* */
 
+//get input value by function calling
+function getInputFiledById(inputFiledId) {
+    const getCostFiledValue = document.getElementById(inputFiledId);
+    const costFiledValueString = getCostFiledValue.value;
+    const costFiledValue = parseFloat(costFiledValueString);
+
+    //validation check
+    if ((isNaN(costFiledValue)) || (typeof costFiledValue !== "number") || (costFiledValue < 0)) {
+        alert('Please provide valid Number');
+        return true;
+    } else {
+        return costFiledValue;
+    }
+
+
+}
+
 //setText by function calling
 function setAmountById(textId, newAmount) {
     const textValueById = document.getElementById(textId);
@@ -44,16 +61,33 @@ function setAmountById(textId, newAmount) {
 }
 //calculation when click on calculate button
 document.getElementById('btn-calculate').addEventListener('click', function () {
-    const perPlayerCostFiled = document.getElementById('player_cost');
-    const perPlayerCostString = perPlayerCostFiled.value;
-    const perPlayerCost = parseFloat(perPlayerCostString);
 
-    const totalExpenses = perPlayerCost * arrayOfplayer.length;
+    const perPlayerCost = getInputFiledById('player_cost');
+    if (perPlayerCost == true) {
+        return;
+    }
 
-    setAmountById('expense-value', totalExpenses);
+    const playerExpenses = perPlayerCost * arrayOfplayer.length;
+
+    setAmountById('expense-value', playerExpenses);
 
 })
 
+//calculation when click on total calculate button
 document.getElementById('total-calculate-btn').addEventListener('click', function () {
+    const managerCost = getInputFiledById('manager-cost');
+    const coachCost = getInputFiledById('coach-cost');
 
+    if ((managerCost == true) || (coachCost == true)) {
+        return;
+    }
+
+    const getplayerCost = document.getElementById('expense-value');
+    const getPlayerCostString = getplayerCost.innerText;
+    const playerCost = parseFloat(getPlayerCostString);
+
+
+    const totalExpenses = managerCost + coachCost + playerCost;
+
+    setAmountById('total-expenses', totalExpenses);
 })
